@@ -1,25 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Nav from './Common_Components/Nav'
+import Home from './Components/Home'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
+import ContinentsList from './Components/ContinentsList'
+import CountriesList from './Components/CountriesList'
+import EventsList from './Components/EventsList'
+
+import {CountryProvider} from './Context/CountryContext';
+import {ContinentProvider} from './Context/ContinentContext'
+import {EventProvider} from './Context/EventsContext'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <div className="container">
+        <Switch>
+        <CountryProvider>
+          <ContinentProvider>
+            <EventProvider>
+          <Route path="/" exact component={Home} />
+          <Route path="/events" component={EventsList}/>
+          <Route path="/continents" component={ContinentsList}/>
+          <Route path="/countries" component={CountriesList}/>
+            </EventProvider>
+          </ContinentProvider>
+        </CountryProvider>
+        </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
