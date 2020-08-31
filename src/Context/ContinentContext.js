@@ -1,7 +1,7 @@
 import React, {useState, createContext} from 'react';
-import {useDataFetcher} from '../Common_Functions/functions';
-import moduleName from '../Components/ContinentsList'
-import ContinentsList from '../Components/ContinentsList';
+import {useDataFetcher} from '../services/functions';
+import moduleName from '../Components/continent/ContinentsList'
+import ContinentsList from '../Components/continent/ContinentsList';
 
 const CONTINENTS_URL = 'https://localhost:5001/api/Continents';
 
@@ -16,3 +16,6 @@ export const ContinentProvider = (props) => {
     </ContinentContext.Provider>
     )
 }
+
+
+//common functions // services

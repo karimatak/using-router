@@ -1,5 +1,5 @@
 import React, {useState, createContext} from 'react';
-import {useDataFetcher} from '../Common_Functions/functions';
+import {useDataFetcher} from '../services/functions';
 
 const EVENTS_URL = 'https://localhost:5001/api/Events';
 

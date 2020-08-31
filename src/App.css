@@ -48,9 +48,9 @@ nav {
 
 .page{
   text-align: left;
-  width: 60%;
   margin: 0 auto;
-  background-color: #FBFAF9;
+  /* background-color: #FBFAF9; */
+  background-color: #f8f7f5;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +58,7 @@ nav {
 .single-data{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 10px;
   padding: 0 5px;
   background-color: #985F6C;
@@ -70,4 +71,15 @@ nav {
   max-width: 25%;
   border-radius: 20px;
   margin: 10px 20px 10px 10px;
+}
+
+.btns{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.submit-form {
+  max-width: 300px;
+  margin: auto;
 }
