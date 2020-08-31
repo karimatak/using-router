@@ -2,16 +2,16 @@ import React ,{useState, useEffect} from 'react';
 import '../../App.css'
 import ContinentDataService from '../../services/ContinentDataService';
 import {Link} from 'react-router-dom';
-import { useParams } from "react-router";
 
-const EditContinent = () => {
+
+const EditContinent = (props) => {
     const initalContinentState = {
         continentId: null,
         continentName: "",
         summary: ""
     };
 
-  let {id} = useParams();
+  let id = props.match.params.id;
   const [continent, setContinent] = useState(initalContinentState);
   const [updated, setUpdated] = useState(false);
 
@@ -29,7 +29,7 @@ useEffect(() => {
     console.log(e);
   })
 },[id])
-console.log(continent)
+
 const updateContinent = () => {
   ContinentDataService.update(continent)
     .then(response => {
@@ -54,7 +54,7 @@ return (
       ) : (
         <div>
           <div className="form-group">
-            <label htmlFor="name">name</label>
+            <label htmlFor="name">Continent Name</label>
             <input
               type="text"
               className="form-control"
@@ -67,7 +67,7 @@ return (
           </div>
 
           <div className="form-group">
-            <label htmlFor="summary">summary</label>
+            <label htmlFor="summary">Summary</label>
             <input
               type="text"
               className="form-control"

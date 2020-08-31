@@ -57,7 +57,7 @@ return (
       ) : (
         <div>
           <div className="form-group">
-            <label htmlFor="name">name</label>
+            <label htmlFor="name">Continent Name</label>
             <input
               type="text"
               className="form-control"
@@ -70,7 +70,7 @@ return (
           </div>
 
           <div className="form-group">
-            <label htmlFor="summary">summary</label>
+            <label htmlFor="summary">Summary</label>
             <input
               type="text"
               className="form-control"

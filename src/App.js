@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/continents" component={ContinentsList}/>
           <Route path="/countries" component={CountriesList}/>
           <Route exact path="/continents/add" component={AddContinent} />
-          <Route exact path="/continents/edit:id" component={EditContinent} />
+          <Route exact path="/continents/edit/:id" component={EditContinent} />
             </EventProvider>
           </ContinentProvider>
         </CountryProvider>

@@ -7,7 +7,6 @@ import {ContinentContext} from '../../Context/ContinentContext'
 //
 import ContinentDataService from '../../services/ContinentDataService'
 import {Link} from 'react-router-dom';
-import AddContinent from './AddContinent';
 //
 function ContinentsList() {
 
@@ -43,6 +42,19 @@ function ContinentsList() {
       })
   }
 
+  const deleteContinent = (id) =>{
+
+    ContinentDataService.remove(id)
+        .then(response => {
+            console.log(response.data);
+            retrieveContinents();
+        })
+        .catch(e => {
+            console.log(e);
+        })
+}
+
+
   if (isLoading) {
     return <p>Loading ...</p>;
   }
@@ -58,7 +70,7 @@ function ContinentsList() {
           Add Continent
         </Link>
         {continent.map(continent => (
-            <Continents continentId={continent.ContinentId} name={continent.ContinentName} summary={continent.Summary} refresh={retrieveContinents} />
+            <Continents continentId={continent.ContinentId} name={continent.ContinentName} summary={continent.Summary} deleteContinent={deleteContinent} />
         ))}
     </div>
   );
